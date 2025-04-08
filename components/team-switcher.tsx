@@ -40,7 +40,7 @@ export function TeamSwitcher({
               size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground gap-3 [&>svg]:size-auto"
             >
-              <div className="flex aspect-square size-8 items-center justify-center rounded-md overflow-hidden bg-sidebar-primary text-sidebar-primary-foreground">
+              <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center overflow-hidden rounded-md">
                 {activeTeam && (
                   <Image
                     src={activeTeam.logo}
@@ -56,7 +56,7 @@ export function TeamSwitcher({
                 </span>
               </div>
               <RiExpandUpDownLine
-                className="ms-auto text-muted-foreground/60"
+                className="text-muted-foreground/60 ms-auto"
                 size={20}
                 aria-hidden="true"
               />
@@ -68,7 +68,7 @@ export function TeamSwitcher({
             side="bottom"
             sideOffset={4}
           >
-            <DropdownMenuLabel className="uppercase text-muted-foreground/60 text-xs">
+            <DropdownMenuLabel className="text-muted-foreground/60 text-xs uppercase">
               Teams
             </DropdownMenuLabel>
             {teams.map((team, index) => (
@@ -77,7 +77,7 @@ export function TeamSwitcher({
                 onClick={() => setActiveTeam(team)}
                 className="gap-2 p-2"
               >
-                <div className="flex size-6 items-center justify-center rounded-md overflow-hidden">
+                <div className="flex size-6 items-center justify-center overflow-hidden rounded-md">
                   <Image
                     src={team.logo}
                     width={36}

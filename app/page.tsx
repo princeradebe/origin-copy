@@ -53,17 +53,17 @@ export default function Page() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
-          <div className="flex gap-3 ml-auto">
+          <div className="ml-auto flex gap-3">
             <FeedbackDialog />
             <UserDropdown />
           </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 lg:gap-6 py-4 lg:py-6">
+        <div className="flex flex-1 flex-col gap-4 py-4 lg:gap-6 lg:py-6">
           {/* Page intro */}
           <div className="flex items-center justify-between gap-4">
             <div className="space-y-1">
               <h1 className="text-2xl font-semibold">Oilà, Larry!</h1>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Here&rsquo;s an overview of your contacts. Manage or create new
                 ones with ease!
               </p>

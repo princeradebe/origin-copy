@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scheme-only-dark" suppressHydrationWarning>
-      <body 
+      <body
         className={`${fontSans.variable} font-sans antialiased`}
         suppressHydrationWarning={true}
       >
