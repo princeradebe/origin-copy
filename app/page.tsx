@@ -1,9 +1,4 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Experiment 01 - Crafted.is",
-};
-
+"use client";
 import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
@@ -25,8 +20,43 @@ import FeedbackDialog from "@/components/feedback-dialog";
 import ContactsTable from "@/components/contacts-table";
 import { RiScanLine } from "@remixicon/react";
 import { StatsGrid } from "@/components/stats-grid";
+import { useState } from "react";
+import { AddContactDialog } from "@/components/add-contact-dialog";
+
+// Added type definition for contact
+type Contact = {
+  id: string;
+  name: string;
+  location: string;
+  image: string;
+  // Add other necessary fields based on your Item type in contacts-table.tsx
+  status: string;
+  verified: boolean;
+  referral: { name: string; image: string };
+  value: number;
+  joinDate: string;
+};
 
 export default function Page() {
+  // Added state for contacts
+  const [contacts, setContacts] = useState<Contact[]>([]);
+
+  // Added handler function
+  const handleAddContact = (newContact: { name: string; location: string; image: string }) => {
+    // Generate a simple unique ID (you might want a more robust solution)
+    const contactWithId: Contact = {
+      ...newContact,
+      id: `contact_${Date.now()}_${Math.random().toString(16).slice(2)}`,
+      // Provide default/dummy values for other fields until full implementation
+      status: "Active", // Default status
+      verified: false, // Default verified status
+      referral: { name: "N/A", image: "/placeholder.jpg" }, // Default referral
+      value: 0, // Default value
+      joinDate: new Date().toLocaleDateString(), // Default join date
+    };
+    setContacts((prevContacts) => [...prevContacts, contactWithId]);
+  };
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -68,7 +98,8 @@ export default function Page() {
                 ones with ease!
               </p>
             </div>
-            <Button className="px-3">Add Contact</Button>
+            {/* Replaced Button with AddContactDialog */}
+            <AddContactDialog onAddContact={handleAddContact} />
           </div>
           {/* Numbers */}
           <StatsGrid
@@ -149,7 +180,8 @@ export default function Page() {
           />
           {/* Table */}
           <div className="min-h-[100vh] flex-1 md:min-h-min">
-            <ContactsTable />
+            {/* Pass contacts state and setter to ContactsTable */}
+            <ContactsTable data={contacts} setData={setContacts} />
           </div>
         </div>
       </SidebarInset>

@@ -278,7 +278,7 @@ const getColumns = ({ data, setData }: GetColumnsProps): ColumnDef<Item>[] => [
   },
 ];
 
-export default function ContactsTable() {
+export default function ContactsTable({ initialData = [] }: { initialData: Item[] }) {
   const id = useId();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -295,7 +295,7 @@ export default function ContactsTable() {
     },
   ]);
 
-  const [data, setData] = useState<Item[]>([]);
+  const [data, setData] = useState<Item[]>(initialData);
   const [isLoading, setIsLoading] = useState(true);
 
   const columns = useMemo(() => getColumns({ data, setData }), [data]);

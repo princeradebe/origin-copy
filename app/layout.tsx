@@ -1,6 +1,11 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { FixHydrationClient } from "../components/fix-hydration-client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Experiment 01 - Crafted.is",
+};
 
 const fontSans = Inter({
   subsets: ["latin"],
