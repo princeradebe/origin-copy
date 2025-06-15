@@ -278,7 +278,15 @@ const getColumns = ({ data, setData }: GetColumnsProps): ColumnDef<Item>[] => [
   },
 ];
 
-export default function ContactsTable({ initialData = [] }: { initialData: Item[] }) {
+export default function ContactsTable({ 
+  data, 
+  setData, 
+  isLoading 
+}: { 
+  data: Item[]; 
+  setData: React.Dispatch<React.SetStateAction<Item[]>>; 
+  isLoading: boolean; 
+}) {
   const id = useId();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -295,27 +303,7 @@ export default function ContactsTable({ initialData = [] }: { initialData: Item[
     },
   ]);
 
-  const [data, setData] = useState<Item[]>(initialData);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const columns = useMemo(() => getColumns({ data, setData }), [data]);
-
-  useEffect(() => {
-    async function fetchPosts() {
-      try {
-        const res = await fetch(
-          "https://res.cloudinary.com/dlzlfasou/raw/upload/users-02_mohkpe.json"
-        );
-        const data = await res.json();
-        setData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    fetchPosts();
-  }, []);
+  const columns = useMemo(() => getColumns({ data, setData }), [data, setData]);
 
   const handleDeleteRows = () => {
     const selectedRows = table.getSelectedRowModel().rows;

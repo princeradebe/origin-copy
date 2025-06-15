@@ -20,7 +20,7 @@ import FeedbackDialog from "@/components/feedback-dialog";
 import ContactsTable from "@/components/contacts-table";
 import { RiScanLine } from "@remixicon/react";
 import { StatsGrid } from "@/components/stats-grid";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AddContactDialog } from "@/components/add-contact-dialog";
 
 // Added type definition for contact
@@ -40,6 +40,7 @@ type Contact = {
 export default function Page() {
   // Added state for contacts
   const [contacts, setContacts] = useState<Contact[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Added handler function
   const handleAddContact = (newContact: { name: string; location: string; image: string }) => {
@@ -56,6 +57,25 @@ export default function Page() {
     };
     setContacts((prevContacts) => [...prevContacts, contactWithId]);
   };
+
+  useEffect(() => {
+    async function fetchPosts() {
+      try {
+        const res = await fetch(
+          "https://res.cloudinary.com/dlzlfasou/raw/upload/users-02_mohkpe.json"
+        );
+        const data = await res.json();
+        setContacts(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Set to empty array on error to prevent crashes
+        setContacts([]);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchPosts();
+  }, []);
 
   return (
     <SidebarProvider>
@@ -181,7 +201,7 @@ export default function Page() {
           {/* Table */}
           <div className="min-h-[100vh] flex-1 md:min-h-min">
             {/* Pass contacts state and setter to ContactsTable */}
-            <ContactsTable data={contacts} setData={setContacts} />
+            <ContactsTable data={contacts} setData={setContacts} isLoading={isLoading} />
           </div>
         </div>
       </SidebarInset>
