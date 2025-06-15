@@ -64,7 +64,18 @@ export default function Page() {
         const res = await fetch(
           "https://res.cloudinary.com/dlzlfasou/raw/upload/users-02_mohkpe.json"
         );
-        const data = await res.json();
+        
+        if (!res.ok) {
+          console.error(`HTTP error! status: ${res.status}`);
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        
+        const text = await res.text();
+        if (!text) {
+          throw new Error('Empty response body');
+        }
+        
+        const data = JSON.parse(text);
         setContacts(data);
       } catch (error) {
         console.error("Error fetching data:", error);
