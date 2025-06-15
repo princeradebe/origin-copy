@@ -42,6 +42,65 @@ export default function Page() {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Dummy data for contacts
+  const dummyContacts: Contact[] = [
+    {
+      id: "contact_001",
+      name: "Sarah Johnson",
+      location: "New York, NY",
+      image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=64&h=64&dpr=1",
+      status: "Active",
+      verified: true,
+      referral: { name: "Mike Chen", image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=1" },
+      value: 85,
+      joinDate: "2024-01-15"
+    },
+    {
+      id: "contact_002",
+      name: "David Rodriguez",
+      location: "Los Angeles, CA",
+      image: "https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&w=64&h=64&dpr=1",
+      status: "Active",
+      verified: false,
+      referral: { name: "Lisa Wang", image: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=1" },
+      value: 72,
+      joinDate: "2024-02-03"
+    },
+    {
+      id: "contact_003",
+      name: "Emily Davis",
+      location: "Chicago, IL",
+      image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=64&h=64&dpr=1",
+      status: "Inactive",
+      verified: true,
+      referral: { name: "John Smith", image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=1" },
+      value: 45,
+      joinDate: "2023-11-20"
+    },
+    {
+      id: "contact_004",
+      name: "Michael Thompson",
+      location: "Houston, TX",
+      image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=64&h=64&dpr=1",
+      status: "Active",
+      verified: true,
+      referral: { name: "Anna Lee", image: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=1" },
+      value: 91,
+      joinDate: "2024-01-08"
+    },
+    {
+      id: "contact_005",
+      name: "Jessica Martinez",
+      location: "Phoenix, AZ",
+      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=64&h=64&dpr=1",
+      status: "Active",
+      verified: false,
+      referral: { name: "Tom Wilson", image: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=1" },
+      value: 63,
+      joinDate: "2024-02-14"
+    }
+  ];
+
   // Added handler function
   const handleAddContact = (newContact: { name: string; location: string; image: string }) => {
     // Generate a simple unique ID (you might want a more robust solution)
@@ -59,33 +118,13 @@ export default function Page() {
   };
 
   useEffect(() => {
-    async function fetchPosts() {
-      try {
-        const res = await fetch(
-          "https://res.cloudinary.com/dlzlfasou/raw/upload/users-02_mohkpe.json"
-        );
-        
-        if (!res.ok) {
-          console.error(`HTTP error! status: ${res.status}`);
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        
-        const text = await res.text();
-        if (!text) {
-          throw new Error('Empty response body');
-        }
-        
-        const data = JSON.parse(text);
-        setContacts(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        // Set to empty array on error to prevent crashes
-        setContacts([]);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    fetchPosts();
+    // Simulate loading delay for better UX
+    const timer = setTimeout(() => {
+      setContacts(dummyContacts);
+      setIsLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
