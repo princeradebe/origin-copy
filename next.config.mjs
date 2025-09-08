@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  assetPrefix: "/exp1-static",
   reactStrictMode: false,
   images: {
     remotePatterns: [
