@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { FixHydrationClient } from "../components/fix-hydration-client";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -23,7 +22,6 @@ export default function RootLayout({
         className={`${fontSans.variable} font-sans antialiased`}
         suppressHydrationWarning={true}
       >
-        <FixHydrationClient />
         {children}
       </body>
     </html>
