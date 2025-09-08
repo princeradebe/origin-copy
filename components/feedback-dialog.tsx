@@ -19,31 +19,29 @@ export default function FeedbackDialog() {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Send us feedback</DialogTitle>
+          <DialogTitle>GRC System Feedback</DialogTitle>
           <DialogDescription>
-            Watch{" "}
+            Help us improve the GRC system. Your feedback is valuable for enhancing governance, 
+            risk management, and compliance processes. Contact our{" "}
             <a className="text-foreground hover:underline" href="#">
-              tutorials
-            </a>
-            , read Origin UI&lsquo;s{" "}
-            <a className="text-foreground hover:underline" href="#">
-              documentation
-            </a>
-            , or join our{" "}
-            <a className="text-foreground hover:underline" href="#">
-              Discord
+              support team
             </a>{" "}
-            for community help.
+            for urgent matters or join our{" "}
+            <a className="text-foreground hover:underline" href="#">
+              user community
+            </a>{" "}
+            for discussions.
           </DialogDescription>
         </DialogHeader>
         <form className="space-y-5">
           <Textarea
             id="feedback"
-            placeholder="How can we improve Origin UI?"
-            aria-label="Send feedback"
+            placeholder="Share your thoughts on GRC functionality, usability, or feature requests..."
+            aria-label="Send GRC feedback"
+            rows={4}
           />
           <div className="flex flex-col sm:flex-row sm:justify-end">
-            <Button type="button">Send feedback</Button>
+            <Button type="button">Send Feedback</Button>
           </div>
         </form>
       </DialogContent>

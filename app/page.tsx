@@ -15,8 +15,8 @@ import {
 } from "@/components/ui/sidebar";
 import UserDropdown from "@/components/user-dropdown";
 import FeedbackDialog from "@/components/feedback-dialog";
-import { RiScanLine } from "@remixicon/react";
-import { ContactsPageClient } from "@/components/contacts-page-client";
+import { BarChart3 } from "lucide-react";
+import { GrcDashboard } from "@/components/grc-dashboard";
 
 export default function Page() {
   return (
@@ -34,13 +34,13 @@ export default function Page() {
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
                   <BreadcrumbLink href="#">
-                    <RiScanLine size={22} aria-hidden="true" />
-                    <span className="sr-only">Dashboard</span>
+                    <BarChart3 size={22} aria-hidden="true" />
+                    <span className="sr-only">GRC Dashboard</span>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Contacts</BreadcrumbPage>
+                  <BreadcrumbPage>Dashboard</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -50,7 +50,7 @@ export default function Page() {
             <UserDropdown />
           </div>
         </header>
-        <ContactsPageClient />
+        <GrcDashboard />
       </SidebarInset>
     </SidebarProvider>
   );

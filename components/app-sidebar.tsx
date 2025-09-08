@@ -16,89 +16,109 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import {
-  RiScanLine,
-  RiBardLine,
-  RiUserFollowLine,
-  RiCodeSSlashLine,
-  RiLoginCircleLine,
-  RiLayoutLeftLine,
-  RiSettings3Line,
-  RiLeafLine,
-  RiLogoutBoxLine,
-} from "@remixicon/react";
+  Shield,
+  AlertTriangle,
+  FileCheck,
+  Users,
+  Settings,
+  BarChart3,
+  FileText,
+  ClipboardCheck,
+  Activity,
+  Lock,
+  Eye,
+  TrendingUp,
+  LogOut,
+  Building2,
+} from "lucide-react";
 
-// This is sample data.
+// GRC System Navigation Data
 const data = {
   teams: [
     {
-      name: "InnovaCraft",
+      name: "GRC Enterprise",
       logo: "https://res.cloudinary.com/dlzlfasou/image/upload/v1741345507/logo-01_kp2j8x.png",
     },
     {
-      name: "Acme Corp.",
+      name: "Compliance Division",
       logo: "https://res.cloudinary.com/dlzlfasou/image/upload/v1741345507/logo-01_kp2j8x.png",
     },
     {
-      name: "Evil Corp.",
+      name: "Risk Management",
       logo: "https://res.cloudinary.com/dlzlfasou/image/upload/v1741345507/logo-01_kp2j8x.png",
     },
   ],
   navMain: [
     {
-      title: "Sections",
+      title: "Core Modules",
       url: "#",
       items: [
         {
           title: "Dashboard",
           url: "#",
-          icon: RiScanLine,
-        },
-        {
-          title: "Insights",
-          url: "#",
-          icon: RiBardLine,
-        },
-        {
-          title: "Contacts",
-          url: "#",
-          icon: RiUserFollowLine,
+          icon: BarChart3,
           isActive: true,
         },
         {
-          title: "Tools",
+          title: "Risk Management",
           url: "#",
-          icon: RiCodeSSlashLine,
+          icon: AlertTriangle,
         },
         {
-          title: "Integration",
+          title: "Compliance",
           url: "#",
-          icon: RiLoginCircleLine,
+          icon: FileCheck,
         },
         {
-          title: "Layouts",
+          title: "Governance",
           url: "#",
-          icon: RiLayoutLeftLine,
+          icon: Building2,
         },
         {
-          title: "Reports",
+          title: "Audit Management",
           url: "#",
-          icon: RiLeafLine,
+          icon: ClipboardCheck,
+        },
+        {
+          title: "Policy Management",
+          url: "#",
+          icon: FileText,
+        },
+        {
+          title: "Incident Reporting",
+          url: "#",
+          icon: Activity,
         },
       ],
     },
     {
-      title: "Other",
+      title: "Administration",
       url: "#",
       items: [
         {
-          title: "Settings",
+          title: "User Management",
           url: "#",
-          icon: RiSettings3Line,
+          icon: Users,
         },
         {
-          title: "Help Center",
+          title: "Security Center",
           url: "#",
-          icon: RiLeafLine,
+          icon: Lock,
+        },
+        {
+          title: "Monitoring",
+          url: "#",
+          icon: Eye,
+        },
+        {
+          title: "Analytics",
+          url: "#",
+          icon: TrendingUp,
+        },
+        {
+          title: "System Settings",
+          url: "#",
+          icon: Settings,
         },
       ],
     },
@@ -152,7 +172,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton className="hover:from-sidebar-accent hover:to-sidebar-accent/40 data-[active=true]:from-primary/20 data-[active=true]:to-primary/5 h-9 gap-3 rounded-md bg-gradient-to-r font-medium hover:bg-transparent [&>svg]:size-auto">
-              <RiLogoutBoxLine
+              <LogOut
                 className="text-muted-foreground/60 group-data-[active=true]/menu-button:text-primary"
                 size={22}
                 aria-hidden="true"

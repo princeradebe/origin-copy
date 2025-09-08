@@ -1,4 +1,4 @@
-import { RiArrowRightUpLine } from "@remixicon/react";
+import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface StatsCardProps {
@@ -9,22 +9,28 @@ interface StatsCardProps {
     trend: "up" | "down";
   };
   icon: React.ReactNode;
+  color?: string;
 }
 
-export function StatsCard({ title, value, change, icon }: StatsCardProps) {
+export function StatsCard({ title, value, change, icon, color = "emerald" }: StatsCardProps) {
   const isPositive = change.trend === "up";
   const trendColor = isPositive ? "text-emerald-500" : "text-red-500";
+  const iconBgColor = color === "emerald" ? "border-emerald-600/50 bg-emerald-600/25 text-emerald-500" : 
+                     color === "blue" ? "border-blue-600/50 bg-blue-600/25 text-blue-500" :
+                     color === "purple" ? "border-purple-600/50 bg-purple-600/25 text-purple-500" :
+                     color === "orange" ? "border-orange-600/50 bg-orange-600/25 text-orange-500" :
+                     "border-emerald-600/50 bg-emerald-600/25 text-emerald-500";
 
   return (
     <div className="group before:from-input/30 before:via-input before:to-input/30 relative p-4 before:absolute before:inset-y-8 before:right-0 before:w-px before:bg-gradient-to-b last:before:hidden lg:p-5">
       <div className="relative flex items-center gap-4">
-        <RiArrowRightUpLine
-          className="absolute top-0 right-0 text-emerald-500 opacity-0 transition-opacity group-has-[a:hover]:opacity-100"
+        <ArrowUpRight
+          className={`absolute top-0 right-0 opacity-0 transition-opacity group-has-[a:hover]:opacity-100 ${trendColor}`}
           size={20}
           aria-hidden="true"
         />
         {/* Icon */}
-        <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-emerald-600/50 bg-emerald-600/25 text-emerald-500 max-[480px]:hidden">
+        <div className={`flex size-10 shrink-0 items-center justify-center rounded-full border ${iconBgColor} max-[480px]:hidden`}>
           {icon}
         </div>
         {/* Content */}
@@ -40,7 +46,7 @@ export function StatsCard({ title, value, change, icon }: StatsCardProps) {
             <span className={cn("font-medium", trendColor)}>
               {isPositive ? "↗" : "↘"} {change.value}
             </span>{" "}
-            vs last week
+            vs last period
           </div>
         </div>
       </div>
