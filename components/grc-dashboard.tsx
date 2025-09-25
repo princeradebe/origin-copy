@@ -9,6 +9,7 @@ import {
   AlertTriangle,
   Shield,
   FileCheck,
+  FileText,
   TrendingUp,
   Users,
   Activity,
