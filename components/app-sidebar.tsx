@@ -65,6 +65,7 @@ const data = {
           title: "Risk Management",
           url: "#",
           icon: AlertTriangle,
+          isActive: false,
         },
         {
           title: "Compliance",
