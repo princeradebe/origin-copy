@@ -48,7 +48,7 @@ const data = {
         },
         {
           title: "Risk Management",
-          url: "#",
+          url: "/risk-management",
           icon: AlertTriangle,
           isActive: false,
         },
