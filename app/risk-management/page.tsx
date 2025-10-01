@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/sidebar";
 import UserDropdown from "@/components/user-dropdown";
 import FeedbackDialog from "@/components/feedback-dialog";
-import { AlertTriangle } from "lucide-react";
+import { TriangleAlert as AlertTriangle } from "lucide-react";
 import { RiskManagementDashboard } from "@/components/risk-management/risk-management-dashboard";
 
 export default function RiskManagementPage() {

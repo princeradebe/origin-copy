@@ -6,21 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
-import {
-  ArrowLeft,
-  Edit,
-  FileText,
-  AlertTriangle,
-  Calendar,
-  User,
-  Target,
-  Shield,
-  TrendingUp,
-  Clock,
-  CheckCircle,
-  Activity,
-  MessageSquare,
-} from "lucide-react";
+import { ArrowLeft, CreditCard as Edit, FileText, TriangleAlert as AlertTriangle, Calendar, User, Target, Shield, TrendingUp, Clock, CircleCheck as CheckCircle, Activity, MessageSquare } from "lucide-react";
 
 interface RiskDetailsProps {
   riskId: string;

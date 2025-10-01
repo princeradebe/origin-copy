@@ -19,17 +19,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Search,
-  Filter,
-  MoreHorizontal,
-  Eye,
-  Edit,
-  Trash2,
-  AlertTriangle,
-  Calendar,
-  User,
-} from "lucide-react";
+import { Search, ListFilter as Filter, MoveHorizontal as MoreHorizontal, Eye, CreditCard as Edit, Trash2, TriangleAlert as AlertTriangle, Calendar, User } from "lucide-react";
 
 interface Risk {
   id: string;

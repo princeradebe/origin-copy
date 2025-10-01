@@ -2,15 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import {
-  BarChart3,
-  TrendingUp,
-  TrendingDown,
-  AlertTriangle,
-  Shield,
-  Target,
-  Calendar,
-} from "lucide-react";
+import { ChartBar as BarChart3, TrendingUp, TrendingDown, TriangleAlert as AlertTriangle, Shield, Target, Calendar } from "lucide-react";
 import ReactECharts from "echarts-for-react";
 
 export function RiskAnalytics() {

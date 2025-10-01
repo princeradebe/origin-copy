@@ -17,22 +17,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import {
-  Shield,
-  AlertTriangle,
-  FileCheck,
-  Users,
-  Settings,
-  BarChart3,
-  FileText,
-  ClipboardCheck,
-  Activity,
-  Lock,
-  Eye,
-  TrendingUp,
-  LogOut,
-  Building2,
-} from "lucide-react";
+import { Shield, TriangleAlert as AlertTriangle, FileCheck, Users, Settings, ChartBar as BarChart3, FileText, ClipboardCheck, Activity, Lock, Eye, TrendingUp, LogOut, Building2 } from "lucide-react";
 
 // GRC System Navigation Data
 const data = {

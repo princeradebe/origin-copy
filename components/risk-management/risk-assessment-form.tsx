@@ -15,16 +15,7 @@ import {
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  ArrowLeft,
-  Save,
-  AlertTriangle,
-  Calendar,
-  User,
-  FileText,
-  Shield,
-  Target,
-} from "lucide-react";
+import { ArrowLeft, Save, TriangleAlert as AlertTriangle, Calendar, User, FileText, Shield, Target } from "lucide-react";
 
 interface RiskAssessmentFormProps {
   onClose: () => void;

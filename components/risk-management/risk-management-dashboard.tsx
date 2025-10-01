@@ -5,22 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  AlertTriangle,
-  Shield,
-  TrendingUp,
-  FileText,
-  Plus,
-  Search,
-  Filter,
-  Download,
-  Eye,
-  Edit,
-  Trash2,
-  Calendar,
-  User,
-  Target,
-} from "lucide-react";
+import { TriangleAlert as AlertTriangle, Shield, TrendingUp, FileText, Plus, Search, ListFilter as Filter, Download, Eye, CreditCard as Edit, Trash2, Calendar, User, Target } from "lucide-react";
 import { RiskRegister } from "@/components/risk-management/risk-register";
 import { RiskAssessmentForm } from "@/components/risk-management/risk-assessment-form";
 import { RiskAnalytics } from "@/components/risk-management/risk-analytics";
