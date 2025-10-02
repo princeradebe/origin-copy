@@ -17,7 +17,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import { Shield, TriangleAlert as AlertTriangle, FileCheck, Users, Settings, ChartBar as BarChart3, FileText, ClipboardCheck, Activity, Lock, Eye, TrendingUp, LogOut, Building2 } from "lucide-react";
+import { Shield, TriangleAlert as AlertTriangle, FileCheck, Users, Settings, ChartBar as BarChart3, FileText, ClipboardCheck, Activity, Lock, Eye, TrendingUp, LogOut, Building2, Briefcase } from "lucide-react";
 
 // GRC System Navigation Data
 const data = {
@@ -42,9 +42,15 @@ const data = {
       items: [
         {
           title: "Dashboard",
-          url: "#",
+          url: "/",
           icon: BarChart3,
           isActive: true,
+        },
+        {
+          title: "Executive Summary",
+          url: "/executive-summary",
+          icon: Briefcase,
+          isActive: false,
         },
         {
           title: "Risk Management",
